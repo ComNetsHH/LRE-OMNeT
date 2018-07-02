@@ -1,0 +1,11 @@
+.cmdenv-log
+.oppbuildpsec
+.qtenvrc
+.settings/
+lre-algorithm
+out/
+results/
+lre-git/LRE
+lre-git/Makefile
+lre-git/README.md
+lre-git/input.txt
