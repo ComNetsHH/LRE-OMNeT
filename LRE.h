@@ -24,21 +24,22 @@ using namespace omnetpp;
 
 class LRE : public cSimpleModule {
   private:
+
     class SignalListener : public cListener {
-    public:
-        SignalListener(LRE* parent);
+        public:
+            SignalListener(LRE* parent);
 
-    protected:
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, bool b, cObject *details) override;
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, long l, cObject *details) override;
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, unsigned long l, cObject *details) override;
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, double d, cObject *details) override;
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, const SimTime& t, cObject *details) override;
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, const char *s, cObject *details) override;
-        virtual void receiveSignal(cComponent *source, simsignal_t signalID, cObject *obj, cObject *details) override;
+        protected:
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, bool b, cObject *details) override;
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, long l, cObject *details) override;
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, unsigned long l, cObject *details) override;
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, double d, cObject *details) override;
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, const SimTime& t, cObject *details) override;
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, const char *s, cObject *details) override;
+            virtual void receiveSignal(cComponent *source, simsignal_t signalID, cObject *obj, cObject *details) override;
 
-    protected:
-        LRE* parent = nullptr;
+        protected:
+            LRE* parent = nullptr;
     };
 
     protected:
