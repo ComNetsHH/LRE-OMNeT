@@ -9,3 +9,7 @@ lre-git/LRE
 lre-git/Makefile
 lre-git/README.md
 lre-git/input.txt
+lre_output*
+.oppfeaturestate
+.nedfolders
+.nedexclusions

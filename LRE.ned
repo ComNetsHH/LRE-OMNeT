@@ -19,7 +19,7 @@ simple LRE
 	parameters:
 	    // Will subscribe to the signal of this name.
 	    string signal_name = default("demo_signal");
-	    string output_file = default("lre_output");
+	    string output_file = default("lre_output.txt");
 	    // Can be any of {CDF, CCDF, PDF}. 
 	    string type = default("CCDF");
 	    // Minimum value on x-axis.

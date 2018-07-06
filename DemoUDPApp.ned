@@ -19,4 +19,5 @@ import inet.applications.udpapp.UDPSink;
 
 simple DemoUDPApp extends UDPSink {           
     @class(DemoUDPApp);
+    @signal[demo_signal](type="simtime_t");
 }
