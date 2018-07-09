@@ -114,6 +114,10 @@ public:
         this->init(type, xMin, xMax, 0.01, 0.05, 0.1, 1E-2, 0, 100000, 0);
     }
 
+    ~LREEvaluator() {
+        printResult();
+    }
+
     /** Puts new variable to probe. */
     void put(double value) {
         this->evaluator->put(value);
