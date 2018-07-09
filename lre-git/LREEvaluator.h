@@ -18,6 +18,7 @@ class LREEvaluator {
 private:
     /** DLRE inside a smart pointer. Needs to be a copyable pointer. */
     boost::shared_ptr<wns::evaluation::statistics::DLRE> evaluator;
+    double last_x_level = 0.0;
     LRE* parent = nullptr;
 
     /** Common initialization for all constructors. */
@@ -110,6 +111,13 @@ public:
     /** Puts new variable to probe. */
     void put(double value) {
         this->evaluator->put(value);
+
+        double current_x_level = evaluator->curXLev();
+        if (current_x_level != last_x_level) {
+            std::cout << "LRE moved from x-level " << last_x_level << " to " << current_x_level << std::endl;
+            current_x_level = last_x_level;
+        }
+
         const wns::evaluation::statistics::DLRE::Phase& current_phase = evaluator->getPhase();
         if (current_phase == wns::evaluation::statistics::DLRE::Phase::finish) {
             std::cout << "LRE has finished. Stopping simulation, and writing output to '" << parent->getOutputFilename() << "'." << std::endl;

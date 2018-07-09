@@ -3,7 +3,6 @@
 .qtenvrc
 .settings/
 lre-algorithm
-out/
 results/
 lre-git/LRE
 lre-git/Makefile
