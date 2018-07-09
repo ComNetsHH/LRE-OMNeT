@@ -87,6 +87,11 @@ private:
                 std::cerr << "Invalid evaluator type: " << type << std::endl;
                 exit(-1);
         }
+
+        std::ofstream file_stream;
+        file_stream.open(std::string("current_lre_level").c_str());
+        file_stream << "TIME\t\tX_LEVEL_FROM\t\tX_LEVEL_TO" << std::endl;
+        file_stream.close();
     }
 
 public:
@@ -115,9 +120,12 @@ public:
 
         double current_x_level = evaluator->curXLev();
         if (current_x_level > last_x_level) {
-            std::cout << "LRE moved from x-level " << last_x_level << " to " << current_x_level << std::endl;
+            std::ofstream file_stream;
+            file_stream.open(std::string("current_lre_level").c_str(), std::ios_base::app);
+            file_stream << simTime().dbl() << "\t\t" << last_x_level << "\t\t" << current_x_level << std::endl;
+            file_stream.close();
+            last_x_level = current_x_level;
         }
-        last_x_level = current_x_level;
 
         const wns::evaluation::statistics::DLRE::Phase& current_phase = evaluator->getPhase();
         if (current_phase == wns::evaluation::statistics::DLRE::Phase::finish) {
