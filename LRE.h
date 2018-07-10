@@ -18,7 +18,7 @@
 
 #include <omnetpp.h>
 
-class LREEvaluator;
+class OMNETEvaluator;
 
 using namespace omnetpp;
 
@@ -49,7 +49,7 @@ class LRE : public cSimpleModule {
 
     protected:
         SignalListener signal_listener = SignalListener(this);
-        LREEvaluator* lre_evaluator = nullptr;
+        OMNETEvaluator* lre_evaluator = nullptr;
         std::string output_file = "unnamed_file",
                     progress_file = "unnamed_progress_file";
         double progress_interval;
@@ -59,7 +59,7 @@ class LRE : public cSimpleModule {
     public:
         ~LRE();
 
-        LREEvaluator* getEvaluator() {
+        OMNETEvaluator* getEvaluator() {
             return lre_evaluator;
         }
 

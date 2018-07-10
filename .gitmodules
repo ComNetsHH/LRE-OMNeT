@@ -1,0 +1,3 @@
+[submodule "lre-src"]
+	path = lre-src
+	url = git@github.com:ComNetsHH/LRE.git

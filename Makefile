@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for $(LIB_PREFIX)lre-algorithm
 #
 # This file was generated with the command:
-#  opp_makemake --make-so -f --deep -O out -KINET_PROJ=../inet -I. -I$$\(INET_PROJ\)/src -L$$\(INET_PROJ\)/out/$$\(CONFIGNAME\)/src -lINET
+#  opp_makemake --make-so -f --deep -O out -KINET_PROJ=../inet -I. -I$$\(INET_PROJ\)/src -L$$\(INET_PROJ\)/out/$$\(CONFIGNAME\)/src -lINET -Xlre-src/main
 #
 
 # Name of target to be created (-o option)
@@ -26,11 +26,11 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 OBJS = \
     $O/DemoUDPApp.o \
     $O/LRE.o \
-    $O/lre-git/dlre.o \
-    $O/lre-git/dlref.o \
-    $O/lre-git/dlreg.o \
-    $O/lre-git/dlrep.o \
-    $O/lre-git/stateval.o
+    $O/lre-src/dlre.o \
+    $O/lre-src/dlref.o \
+    $O/lre-src/dlreg.o \
+    $O/lre-src/dlrep.o \
+    $O/lre-src/stateval.o
 
 # Message files
 MSGFILES =

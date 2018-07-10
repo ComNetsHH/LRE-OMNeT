@@ -14,7 +14,8 @@
 // 
 
 #include "LRE.h"
-#include "lre-git/LREEvaluator.h"
+
+#include "OMNETEvaluator.h"
 
 using namespace std;
 
@@ -58,7 +59,7 @@ void LRE::initialize() {
     int max_samples = par("max_samples"),
         evaluation_interval = par("evaluation_interval");
 
-    lre_evaluator = new LREEvaluator(this, type_num, x_min, x_max, bin_size, max_error, initial_x_state, y_min, enforce_large_sample_condition, max_samples, evaluation_interval);
+    lre_evaluator = new OMNETEvaluator(this, type_num, x_min, x_max, bin_size, max_error, initial_x_state, y_min, enforce_large_sample_condition, max_samples, evaluation_interval);
 }
 
 void LRE::lreIsFinished() {
