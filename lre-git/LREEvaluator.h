@@ -123,19 +123,23 @@ public:
         this->evaluator->put(value);
 
         // Inform user about progress.
-        double current_x_level = evaluator->curXLev();
-        if (current_x_level > last_x_level) {
-            std::ofstream file_stream;
-            file_stream.open(std::string("current_lre_level").c_str(), std::ios_base::app);
-            if (last_x_level == -DBL_MAX)
-                file_stream << simTime().dbl() << "\t\t" << "init" << "\t" << current_x_level << std::endl;
-            else
-                file_stream << simTime().dbl() << "\t\t" << last_x_level << "\t" << current_x_level << std::endl;
-            file_stream.close();
+        if (parent->doProgressReport()) {
+            double current_x_level = evaluator->curXLev();
+            if (current_x_level > last_x_level) {
+                std::ofstream file_stream;
+                file_stream.open(std::string("current_lre_level").c_str(), std::ios_base::app);
+                if (last_x_level == -DBL_MAX) {
+                    file_stream << simTime().dbl() << "\t\t" << "init" << "\t" << current_x_level << std::endl;
+                    std::cout << "LRE x-level change " << "init" << " -> " << current_x_level << "." << std::endl;
+                } else {
+                    file_stream << simTime().dbl() << "\t\t" << last_x_level << "\t" << current_x_level << std::endl;
+                    std::cout << "LRE x-level change " << last_x_level << " -> " << current_x_level << "." << std::endl;
+                }
+                file_stream.close();
 
-            std::cout << "LRE x-level change " << last_x_level << " -> " << current_x_level << "." << std::endl;
 
-            last_x_level = current_x_level;
+                last_x_level = current_x_level;
+            }
         }
 
         const wns::evaluation::statistics::DLRE::Phase& current_phase = evaluator->getPhase();
@@ -153,6 +157,19 @@ public:
         std::ofstream file_stream;
         file_stream.open(parent->getOutputFilename().c_str());
         this->evaluator->print(file_stream);
+        file_stream.close();
+    }
+
+    void printSnapshot(bool print_to_file) {
+        std::ostream &stream = std::cout;
+        this->evaluator->print(stream);
+
+        if (print_to_file) {
+            std::ofstream file_stream;
+            file_stream.open(parent->getProgressFilename().c_str());
+            this->evaluator->print(file_stream);
+            file_stream.close();
+        }
     }
 };
 

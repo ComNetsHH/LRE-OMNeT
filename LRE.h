@@ -45,11 +45,16 @@ class LRE : public cSimpleModule {
     protected:
         virtual void initialize();
         virtual void handleMessage(cMessage *msg);
+        void snapshot();
 
     protected:
         SignalListener signal_listener = SignalListener(this);
         LREEvaluator* lre_evaluator = nullptr;
-        std::string output_file = "unnamed_file";
+        std::string output_file = "unnamed_file",
+                    progress_file = "unnamed_progress_file";
+        double progress_interval;
+        cMessage* progress_message = nullptr;
+        bool do_progress_report, do_progress_report_to_file;
 
     public:
         ~LRE();
@@ -60,6 +65,14 @@ class LRE : public cSimpleModule {
 
         const std::string& getOutputFilename() const {
             return output_file;
+        }
+
+        const std::string& getProgressFilename() const {
+            return progress_file;
+        }
+
+        bool doProgressReport() const {
+            return do_progress_report;
         }
 
         void lreIsFinished();

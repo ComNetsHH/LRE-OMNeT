@@ -26,10 +26,17 @@ void LRE::initialize() {
 
     std::string name = par("output_file");
     this->output_file = name;
+    std::string progress_name = par("progress_file");
+    this->progress_file = progress_name;
+    this->progress_interval = par("progress_interval");
+    progress_message = new cMessage("progress_message");
+    do_progress_report = par("progress_report").boolValue();
+    do_progress_report_to_file = par("progress_report_to_file").boolValue();
+    if (do_progress_report)
+        scheduleAt(simTime() + progress_interval, progress_message);
 
     // Initialize LRE evaluator.
     string type = par("type");
-    std::cout << type << std::endl;
     int type_num;
     if (type.compare("CDF") == 0)
         type_num = LREEvaluator::TYPE_DLREF;
@@ -58,8 +65,17 @@ void LRE::lreIsFinished() {
     endSimulation();
 }
 
+void LRE::snapshot() {
+    lre_evaluator->printSnapshot(do_progress_report_to_file);
+}
+
 void LRE::handleMessage(cMessage *msg) {
-    cout << "LRE::handleMessage" << endl;
+    if (msg == progress_message) {
+        snapshot();
+        scheduleAt(simTime() + progress_interval, progress_message);
+    } else {
+        cout << "LRE::handleMessage: " << msg->getName() << endl;
+    }
 }
 
 LRE::SignalListener::SignalListener(LRE* parent) {
@@ -96,4 +112,7 @@ void LRE::SignalListener::receiveSignal(cComponent *source, simsignal_t signalID
 
 LRE::~LRE() {
     delete lre_evaluator;
+    if (progress_message->isScheduled())
+        cancelEvent(progress_message);
+    delete progress_message;
 }

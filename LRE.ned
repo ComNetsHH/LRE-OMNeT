@@ -20,6 +20,13 @@ simple LRE
 	    // Will subscribe to the signal of this name.
 	    string signal_name = default("demo_signal");
 	    string output_file = default("lre_output.txt");
+	    // Print progress reports to this file.
+	    string progress_file = default("lre_progress.txt");
+	    // Every x seconds the progress will be printed both to stdout and to "progress_file".
+	    double progress_interval = default(10000);
+	    // Whether to do periodic progress reports.
+	    bool progress_report = true;
+	    bool progress_report_to_file = false;
 	    // Can be any of {CDF, CCDF, PDF}. 
 	    string type = default("CCDF");
 	    // Minimum value on x-axis.

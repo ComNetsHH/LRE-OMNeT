@@ -13,3 +13,5 @@ lre_output*
 .nedfolders
 .nedexclusions
 out/
+lre_progress.txt
+lre_output.txt
