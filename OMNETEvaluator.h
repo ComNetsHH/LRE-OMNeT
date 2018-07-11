@@ -10,7 +10,9 @@ public:
           this->parent = parent;
   }
 
-
+    virtual ~OMNETEvaluator() {
+        printResult();
+    }
 
   void put(double value) {
     LREEvaluator::put(value);
@@ -19,28 +21,19 @@ public:
     if (parent->doProgressReport()) {
         double current_x_level = evaluator->curXLev();
         if (current_x_level > last_x_level) {
-            std::ofstream file_stream;
-            file_stream.open(std::string("current_lre_level").c_str(), std::ios_base::app);
-            if (last_x_level == -DBL_MAX) {
-                file_stream << simTime().dbl() << "\t\t" << "init" << "\t" << current_x_level << std::endl;
-                std::cout << "LRE x-level change " << "init" << " -> " << current_x_level << "." << std::endl;
-            } else {
-                file_stream << simTime().dbl() << "\t\t" << last_x_level << "\t" << current_x_level << std::endl;
-                std::cout << "LRE x-level change " << last_x_level << " -> " << current_x_level << "." << std::endl;
-            }
-            file_stream.close();
-
-
+            std::cout << "LRE x-level change " << ((last_x_level == -DBL_MAX) ? std::string("init") : std::to_string(last_x_level)) << " -> " << current_x_level << "." << std::endl;
             last_x_level = current_x_level;
         }
     }
 
     const wns::evaluation::statistics::DLRE::Phase& current_phase = evaluator->getPhase();
     if (current_phase == wns::evaluation::statistics::DLRE::Phase::finish) {
-        std::cout << "LRE has finished. Stopping simulation, and writing output to '" << parent->getOutputFilename() << "'." << std::endl;
-        printResult();
         parent->lreIsFinished();
     }
+  }
+
+  void printResult() {
+      LREEvaluator::printResult(parent->getOutputFilename());
   }
 
 protected:

@@ -72,11 +72,12 @@ void LRE::initialize() {
 }
 
 void LRE::lreIsFinished() {
+    lre_evaluator->printResult();
     endSimulation();
 }
 
 void LRE::snapshot() {
-    lre_evaluator->printSnapshot(do_progress_report_to_file);
+    lre_evaluator->printSnapshot(do_progress_report_to_file, progress_file);
 }
 
 void LRE::handleMessage(cMessage *msg) {
