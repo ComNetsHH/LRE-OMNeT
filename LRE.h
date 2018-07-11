@@ -53,10 +53,11 @@ class LRE : public cSimpleModule {
         std::string output_file = "unnamed_file",
                     progress_file = "unnamed_progress_file";
         double progress_interval;
-        cMessage* progress_message = nullptr;
+        cMessage progress_message;
         bool do_progress_report, do_progress_report_to_file;
 
     public:
+        LRE();
         ~LRE();
 
         OMNETEvaluator* getEvaluator() {

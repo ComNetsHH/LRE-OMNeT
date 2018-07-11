@@ -15,3 +15,4 @@ lre_output*
 out/
 lre_progress.txt
 lre_output.txt
+liblre-algorithm.so

@@ -26,7 +26,7 @@ simple LRE
 	    double progress_interval = default(10000);
 	    // Whether to do periodic progress reports.
 	    bool progress_report = true;
-	    bool progress_report_to_file = false;
+	    bool progress_report_to_file = true;
 	    // Can be any of {CDF, CCDF, PDF}. 
 	    string type = default("CCDF");
 	    // Minimum value on x-axis.
