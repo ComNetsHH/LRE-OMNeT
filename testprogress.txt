@@ -1,0 +1,63 @@
+#  PROBE RESULTS (THIS IS A MAGIC LINE)
+# ---------------------------------------------------------------------------
+# Evaluation: DLREG
+# ---------------------------------------------------------------------------
+#  Name: DLREG
+#  Description: Equidistant
+# ---------------------------------------------------------------------------
+#  Evaluation terminated successfully!
+# ---------------------------------------------------------------------------
+#  Common Statistics 
+#  Minimum: 1.0868404e-05
+#  Maximum: 1.5348723e+00
+#  Trials: 6763
+#  Mean: 1.4785458e-01
+# 
+#  Variance: 2.2377708e-02
+#  Relative variance: 1.0236371e+00
+#  Coefficient of variation: 1.0117495e+00
+#  Standard deviation: 1.4959180e-01
+#  Relative standard deviation: 1.0117495e+00
+# 
+#  Skewness: 2.1444154e+00
+# 
+#  2nd moment: 4.4235376e-02
+#  3rd moment: 2.0335195e-02
+# 
+#  Sum of all values: 9.9994053e+02
+#  (Sum of all values)^2: 2.9916385e+02
+#  (Sum of all values)^3: 1.3752693e+02
+# ---------------------------------------------------------------------------
+#  DLREG statistics
+# 
+#  lower border: 0.0000e+00
+#  upper border: 5.0000e-01
+#  number of intervals: 6
+#  interval size: 1.0000e-01
+#  maximum number of samples: 100000000
+#  maximum relative error [%]: 5.0000
+# 
+#  large sample condition r - a >= 10 not enforced.
+# ---------------------------------------------------------------------------
+#  DLREG Data
+# 
+#  evaluated levels: 3
+#  Underflows: 0
+#  Overflows: 230
+# 
+# Iteration phase not completed, collecting samples.
+# ------------------------------------------------------------------------------------
+#                                               mean local      deviation       number of    number of
+# ordinate      abscissa        relative        correlation     from mean       trials per   transitions    relative error
+#                               error           coefficient     local c.c.      interval     per interval   within limit
+# 
+# G(x)          x               d(x)            rho(x)          sigma(x)        n(x)         t(x)
+#                                G                 G                 rho
+# 
+# 1.0000000e+00 0.0000000e+00   0.0000000e+00   not_available   not_available   3356         0                n
+5.0377052e-01   1.0000000e-01   1.2051817e-02  -1.3877164e-03   1.2159895e-02   1656         1693             y
+2.5890877e-01   2.0000000e-01   2.0268263e-02  -1.4910987e-02   1.2046537e-02   859          1317             y
+1.3189413e-01   3.0000000e-01   3.0651220e-02  -1.7627115e-02   1.1630212e-02   431          788              y
+6.8165016e-02   4.0000000e-01   4.5019565e-02   1.3406893e-03   1.2255121e-02   231          429              y
+# 3.4008576e-02 5.0000000e-01   0.0000000e+00   not_available   not_available   0            222              n
+# ------------------------------------------------------------------------------------

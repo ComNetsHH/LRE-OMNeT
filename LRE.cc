@@ -41,7 +41,7 @@ void LRE::initialize() {
     this->progress_file = progress_name;
     this->progress_interval = par("progress_interval");
     do_progress_report = par("progress_report").boolValue();
-    do_progress_report_to_file = par("progress_report_to_file").boolValue();
+    do_progress_report_to_file = par("progress_write_to_file").boolValue();
     if (do_progress_report)
         scheduleAt(simTime() + progress_interval, &progress_message);
 
