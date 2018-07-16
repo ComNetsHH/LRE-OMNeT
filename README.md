@@ -3,7 +3,7 @@ Integration of the **Limited Relative Error algorithm** into OMNeT++
 
 The LRE algorithm comes as a stand-alone implementation [here](https://github.com/ComNetsHH/LRE). It is included in this project as a Git submodule.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313027.svg)](https://doi.org/10.5281/zenodo.1313027)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1313054.svg)](https://doi.org/10.5281/zenodo.1313054)
 
 
 Usage
